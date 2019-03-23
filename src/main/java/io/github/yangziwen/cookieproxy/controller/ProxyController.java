@@ -21,8 +21,8 @@ public class ProxyController {
 
     private static final OkHttpClient CLIENT = new OkHttpClient.Builder()
             .connectTimeout(30, TimeUnit.SECONDS)
-            .readTimeout(30, TimeUnit.SECONDS)
-            .writeTimeout(30,  TimeUnit.SECONDS)
+            .readTimeout(60, TimeUnit.SECONDS)
+            .writeTimeout(120,  TimeUnit.SECONDS)
             .build();
 
     private ProxyController() {}
