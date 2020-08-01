@@ -65,8 +65,9 @@ public class ProxyController {
 
     private static String sendPostRequest(spark.Request originRequest, spark.Response originResponse) {
 
-        String url = ProxyConfig.base_url + "/" + StringUtils.join(originRequest.splat(), "/");
+        String queryString = StringUtils.isNotBlank(originRequest.queryString()) ? "?" + originRequest.queryString() : "";
 
+        String url = ProxyConfig.base_url + "/" + StringUtils.join(originRequest.splat(), "/") + queryString;
 
         Request request = new Request.Builder()
                 .url(url)
@@ -89,8 +90,9 @@ public class ProxyController {
 
     private static String sendPutRequest(spark.Request originRequest, spark.Response originResponse) {
 
-        String url = ProxyConfig.base_url + "/" + StringUtils.join(originRequest.splat(), "/");
+        String queryString = StringUtils.isNotBlank(originRequest.queryString()) ? "?" + originRequest.queryString() : "";
 
+        String url = ProxyConfig.base_url + "/" + StringUtils.join(originRequest.splat(), "/") + queryString;
 
         Request request = new Request.Builder()
                 .url(url)
@@ -113,7 +115,9 @@ public class ProxyController {
 
     private static String sendDeleteRequest(spark.Request originRequest, spark.Response originResponse) {
 
-        String url = ProxyConfig.base_url + "/" + StringUtils.join(originRequest.splat(), "/");
+        String queryString = StringUtils.isNotBlank(originRequest.queryString()) ? "?" + originRequest.queryString() : "";
+
+        String url = ProxyConfig.base_url + "/" + StringUtils.join(originRequest.splat(), "/") + queryString;
 
         Request request = new Request.Builder()
                 .url(url)
