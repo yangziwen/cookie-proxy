@@ -55,6 +55,7 @@ public class ProxyController {
             for (String name : response.headers().names()) {
                 originResponse.header(name, response.header(name));
             }
+            log.info("send GET request to url[{}]", url);
             return response.body().string();
         } catch (IOException e) {
             String errorMsg = String.format("failed to send GET request to url[{}]", url);
@@ -79,6 +80,7 @@ public class ProxyController {
             for (String name : response.headers().names()) {
                 originResponse.header(name, response.header(name));
             }
+            log.info("send POST request to url[{}]", url);
             return response.body().string();
         } catch (IOException e) {
             String errorMsg = String.format("failed to send POST request to url[{}]", url);
@@ -104,6 +106,7 @@ public class ProxyController {
             for (String name : response.headers().names()) {
                 originResponse.header(name, response.header(name));
             }
+            log.info("send PUT request to url[{}]", url);
             return response.body().string();
         } catch (IOException e) {
             String errorMsg = String.format("failed to send PUT request to url[{}]", url);
@@ -129,6 +132,7 @@ public class ProxyController {
             for (String name : response.headers().names()) {
                 originResponse.header(name, response.header(name));
             }
+            log.info("send DELETE request to url[{}]", url);
             return response.body().string();
         } catch (IOException e) {
             String errorMsg = String.format("failed to send DELETE request to url[{}]", url);
